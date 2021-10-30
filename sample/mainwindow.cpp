@@ -2,11 +2,6 @@
 #include "ui_mainwindow.h"
 
 
-enum GameType
-{
-    CRAZY_ARCADE,
-};
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,17 +15,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-MainWindow::InitializeGame(int gameType)
+void MainWindow::InitializeGame(GameType gameType)
 {
     InitializeScenes(gameType);
 }
 
-MainWindow::InitializeScenes(int gameType)
+void MainWindow::InitializeScenes(GameType gameType)
 {
-    switch (gameType) {
-    case CRAZY_ARCADE:
+    scenes.clear();
+    QGraphicsScene *scene = nullptr;
 
-        break;
+    switch(gameType){
+    case CRAZY_ARCADE:
+    {
+        scene = new QGraphicsScene(this);
+        scenes.insert(MAP_1, scene);
+    } break;
+
     default:
         break;
     }

@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
-#include <QList>
+#include <QHash>
 
 namespace Ui {
 class MainWindow;
@@ -14,17 +14,21 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    enum GameType { CRAZY_ARCADE };
+    enum SceneType { MAP_1, };
+
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
 
-    QList<QGraphicsScene> scenes;
+    QHash<SceneType, QGraphicsScene *> scenes;
+    //QMap<SceneType, QGraphicsScene> scenes;
     QGraphicsScene *currentScene;
 
-    void InitializeGame(int gameType);
-    void InitializeScenes(int gameType);
+    void InitializeGame(GameType gameType);
+    void InitializeScenes(GameType gameType);
 };
 
 #endif // MAINWINDOW_H
