@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
 
 public:
     enum GameType { CRAZY_ARCADE };
-    enum SceneType { MAP_1, };
+    enum SceneType { DEFAULT, };
 
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -23,9 +23,7 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    QHash<SceneType, QGraphicsScene *> scenes;
-    //QMap<SceneType, QGraphicsScene> scenes;
-    QGraphicsScene *currentScene;
+    QHash<SceneType, QGraphicsScene *> m_scenes;
 
     void InitializeGame(GameType gameType);
     void InitializeScenes(GameType gameType);

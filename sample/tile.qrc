@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/amazon.png</file>
+        <file>resources/google.png</file>
+        <file>resources/ms.png</file>
+        <file>resources/check.png</file>
+    </qresource>
+</RCC>
